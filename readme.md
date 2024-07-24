@@ -11,9 +11,9 @@
 ## Installation 
 
 ```bash
-pip install -r requirements.txt;
-python setup.py develop --no_cuda_ext;
-pip install git+https://github.com/cheind/pytorch-debayer;
+pip install -r requirements.txt
+python setup.py develop --no_cuda_ext
+pip install git+https://github.com/cheind/pytorch-debayer
 ```
 ## Download
 
@@ -38,14 +38,14 @@ pip install git+https://github.com/cheind/pytorch-debayer;
 HCBlur_Syn_test
 ├── longW # long-exposure wide images
 │   ├── 0908/20230908_10_32_05/000001
-│   │   ├── longW/blur # folder of blurred image
-│   │   ├── longW/gt # folder of gt sharp image
+│   │   ├── longW/blur # folder of a blurred image
+│   │   ├── longW/gt # folder of a gt sharp image
 │   ...
 ├── shortUW # short-exposure ultra-wide images
 │   ├── 0908/20230908_10_32_05/000001
 │   │   ├── UWseqs/000001 # ultra-wide sequnece corresponding to longW/0908/20230908_10_32_05/000001
 │   ...
-├── shortUW_depth # estimated depth from FOV alignment step.
+├── shortUW_depth # estimated depth from the FOV alignment step.
 │   ├── 0908/20230908_10_32_05_depth.txt # estimated depth values
 │   ...
 ├── shortUW_flows # estimated optical flows from ultra-wide images.
@@ -115,8 +115,8 @@ python evaluation/evaluate_HCBlur.py --input_dir=results/HCDNet --out_txt=HCDNet
 python evaluation/evaluate_HCBlur.py --input_dir=results/HCFNet --out_txt=HCFNet.txt
 
 # compute non-reference metrics on HCBlur-Real
-bash evaluation/evaluation_NR_metrics.sh "results/HCBlur-Real/HCDNet/*_HCDNet.png" HCDNet;
-bash evaluation/evaluation_NR_metrics.sh "results/HCBlur-Real/HCFNet/*_HCFNet.png" HCFNet;
+bash evaluation/evaluation_NR_metrics.sh "results/HCBlur-Real/HCDNet/*_HCDNet.png" HCDNet
+bash evaluation/evaluation_NR_metrics.sh "results/HCBlur-Real/HCFNet/*_HCFNet.png" HCFNet
 ```
 
 ## Training (Soon)
