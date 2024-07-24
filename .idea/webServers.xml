@@ -1,0 +1,14 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<project version="4">
+  <component name="WebServers">
+    <option name="servers">
+      <webServer id="7c21900a-827e-4980-9246-5d6aee8bc142" name="123">
+        <fileTransfer rootFolder="/Jarvis/workspace/jsrim" accessType="SFTP" host="141.223.92.7" port="2277" sshConfigId="00a8598c-84f3-4eb4-b3d0-70fddcdd549f" sshConfig="jsrim@141.223.92.7:2277 password">
+          <advancedOptions>
+            <advancedOptions dataProtectionLevel="Private" keepAliveTimeout="0" passiveMode="true" shareSSLContext="true" />
+          </advancedOptions>
+        </fileTransfer>
+      </webServer>
+    </option>
+  </component>
+</project>

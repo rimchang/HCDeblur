@@ -1,0 +1,4 @@
+backup
+options/test_new
+pretrained_models/*
+run.txt
