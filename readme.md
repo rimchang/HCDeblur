@@ -34,7 +34,7 @@ pip install git+https://github.com/cheind/pytorch-debayer;
 #### The HCBlur-Syn dataset
 
 ```bash
-# HCBlur_Syn_train.zip
+# HCBlur_Syn_test.zip
 HCBlur_Syn_test
 ├── longW # long-exposure wide images
 │   ├── 0908/20230908_10_32_05/000001
