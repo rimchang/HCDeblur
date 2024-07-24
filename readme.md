@@ -8,6 +8,8 @@
 > <sup>1</sup>POSTECH, <sup>2</sup>Samsung AI Center Toronto<br>
 > *ACM SIGGRAPH 2024 Conference Papers*<br>
 
+
+
 >Mobile cameras, despite their significant advancements, still have difficulty in low-light imaging due to compact sensors and lenses, leading to longer exposures and motion blur. Traditional blind deconvolution methods and learning-based deblurring methods can be potential solutions to remove blur. However, achieving practical performance still remains a challenge. To address this, we propose a learning-based deblurring framework for smartphones, utilizing wide and ultra-wide cameras as a hybrid camera system. We simultaneously capture a long-exposure wide image and short-exposure burst ultra-wide images, and utilize the burst images to deblur the wide image. To fully exploit burst ultra-wide images, we present HCDeblur, a practical deblurring framework that includes novel deblurring networks, HC-DNet and HC-FNet. HC-DNet utilizes motion information extracted from burst images to deblur a wide image, and HC-FNet leverages burst images as reference images to further enhance a deblurred output. For training and evaluating the proposed method, we introduce the HCBlur dataset, which consists of synthetic and real-world datasets. Our experiments demonstrate that HCDeblur achieves state-of-the-art deblurring quality.
 
 ## Installation 
@@ -27,7 +29,7 @@ pip install git+https://github.com/cheind/pytorch-debayer;
 - HCBlur-Syn
   - HCBlur_Syn_train : 5,795 samples for training.
     - We synthesize noise and saturation pixels during training process. 
-    - Please refer to [RSBlurPipeline_for_W]() and [RSBlurPipeline_for_UW]()
+    - Please refer to [RSBlurPipeline_for_W](https://github.com/rimchang/HCDeblur/blob/6a7bd2fb093a97a5a2f9e2b2c816bc4c28508ea5/basicsr/models/HCFNet_with_RSBlur_model.py#L79) and [RSBlurPipeline_for_UW](https://github.com/rimchang/HCDeblur/blob/6a7bd2fb093a97a5a2f9e2b2c816bc4c28508ea5/basicsr/models/HCFNet_with_RSBlur_model.py#L262)
   - HCBlur_Syn_val : 880 samples for validation.
   - HCBlur_Syn_test : 1,731 samples for evaluation.
 - HCBlur-Real
@@ -117,8 +119,8 @@ python evaluation/evaluate_HCBlur.py --input_dir=results/HCDNet --out_txt=HCDNet
 python evaluation/evaluate_HCBlur.py --input_dir=results/HCFNet --out_txt=HCFNet.txt
 
 # compute non-reference metrics on HCBlur-Real
-bash evaluation/evaluation_NR_metrics.sh "results_real/HCBlur-Real/HCDNet/*_HCDNet.png" HCDNet;
-bash evaluation/evaluation_NR_metrics.sh "results_real/HCBlur-Real/HCFNet/*_HCFNet.png" HCFNet;
+bash evaluation/evaluation_NR_metrics.sh "results/HCBlur-Real/HCDNet/*_HCDNet.png" HCDNet;
+bash evaluation/evaluation_NR_metrics.sh "results/HCBlur-Real/HCFNet/*_HCFNet.png" HCFNet;
 ```
 
 ## Training (Soon)
