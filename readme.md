@@ -43,7 +43,7 @@ HCBlur_Syn_test
 │   ...
 ├── shortUW # short-exposure ultra-wide images
 │   ├── 0908/20230908_10_32_05/000001
-│   │   ├── UWseqs/000001 # ultra-wide sequnece corresponding to longW/0908/20230908_10_32_27/000001
+│   │   ├── UWseqs/000001 # ultra-wide sequnece corresponding to longW/0908/20230908_10_32_05/000001
 │   ...
 ├── shortUW_depth # estimated depth from FOV alignment step.
 │   ├── 0908/20230908_10_32_05_depth.txt # estimated depth values
