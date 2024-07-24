@@ -127,7 +127,7 @@ The HCBlur dataset is released under CC BY 4.0 license.
 
 ## Acknowledment
 
-The code is based on [BasicSR](https://github.com/XPixelGroup/BasicSR), [NAFNet](https://github.com/megvii-research/NAFNet), [EDVR](https://github.com/xinntao/EDVR) and [IQA-PyTorch](https://github.com/chaofengc/IQA-PyTorch).
+The code is based on [BasicSR](https://github.com/XPixelGroup/BasicSR), [NAFNet](https://github.com/megvii-research/NAFNet), [RAFT](https://github.com/princeton-vl/RAFT), [EDVR](https://github.com/xinntao/EDVR) and [IQA-PyTorch](https://github.com/chaofengc/IQA-PyTorch).
 
 ## Citation
 
