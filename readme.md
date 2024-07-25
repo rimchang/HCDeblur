@@ -78,8 +78,8 @@ HCBlur_Real
 
 - HC-DNet.pth: Weight of HC-DNet trained on HCBlur.
 - HC-FNet.pth: Weight of HC-FNet trained on HCBlur.
-- raft-sintel: Weight of RAFT.
-- raft-small: Weight of RAFT_small.
+- raft-sintel.pth: Weight of RAFT.
+- raft-small.pth: Weight of RAFT_small.
 </details>
 
 ## Demo
