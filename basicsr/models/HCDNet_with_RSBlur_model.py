@@ -195,21 +195,10 @@ class HCDNet_with_RSBlur_model(BaseModel):
         else:
             self.cri_pix = None
 
-        if train_opt.get('perceptual_opt'):
-            percep_type = train_opt['perceptual_opt'].pop('type')
-            cri_perceptual_cls = getattr(loss_module, percep_type)
-            self.cri_perceptual = cri_perceptual_cls(
-                **train_opt['perceptual_opt']).to(self.device)
-        else:
-            self.cri_perceptual = None
-
-
-        if self.cri_pix is None and self.cri_perceptual is None:
-            raise ValueError('Both pixel and perceptual losses are None.')
-
         # set up optimizers and schedulers
         self.setup_optimizers()
         self.setup_schedulers()
+
 
     def setup_optimizers(self):
         train_opt = self.opt['train']

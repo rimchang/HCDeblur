@@ -111,8 +111,8 @@ python test_HCBlur_Real.py --dataset_root=datasets/HCBlur-Real --out_dir=results
 # ./HCDeblur
 
 # compute PSNR and SSIM on HCBlur-Syn
-python evaluation/evaluate_HCBlur.py --input_dir=results/HCDNet --out_txt=HCDNet.txt
-python evaluation/evaluate_HCBlur.py --input_dir=results/HCFNet --out_txt=HCFNet.txt
+python evaluation/evaluate_HCBlur.py --input_dir=results/HCDNet/visualization/HCBlur-test --out_txt=HCDNet.txt
+python evaluation/evaluate_HCBlur.py --input_dir=results/HCFNet/visualization/HCBlur-test --out_txt=HCFNet.txt
 
 # compute non-reference metrics on HCBlur-Real
 bash evaluation/evaluation_NR_metrics.sh "results/HCBlur-Real/HCDNet/*_HCDNet.png" HCDNet

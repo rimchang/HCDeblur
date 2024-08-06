@@ -241,9 +241,9 @@ def viz_blur_kernels(img, kernels, output_path):
 
 
 # load stereoParams
-K_W = scipy.io.loadmat('CameraCalibration/K.mat')['K'].astype('float32').transpose(1, 0)
-K_UW = scipy.io.loadmat('CameraCalibration/K2.mat')['K2'].astype('float32').transpose(1, 0)
-E = scipy.io.loadmat('CameraCalibration/E2.mat')['E2'].astype('float32').transpose(1, 0)
+K_W = scipy.io.loadmat('mat_collections/K.mat')['K'].astype('float32').transpose(1, 0)
+K_UW = scipy.io.loadmat('mat_collections/K2.mat')['K2'].astype('float32').transpose(1, 0)
+E = scipy.io.loadmat('mat_collections/E2.mat')['E2'].astype('float32').transpose(1, 0)
 
 K_W_pt = torch.from_numpy(K_W).unsqueeze(0).cuda()
 K_UW_pt = torch.from_numpy(K_UW).unsqueeze(0).cuda()

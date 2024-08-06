@@ -346,6 +346,7 @@ class HCBlur_with_U_dataset(data.Dataset):
                                             padding_mode='zeros',
                                             align_corners=True).view(flow_dim, 2, h, w)  # [B, C, H, W]
 
+
             seqs_flow = warped_seqs_flow.clone()
             seqs_flow = (seqs_flow - W_ori_grid) * 1/6
             seqs_flow = seqs_flow.numpy()
@@ -369,11 +370,11 @@ class HCBlur_with_U_dataset(data.Dataset):
         # augmentation for training
         if self.opt['phase'] == 'train':
             # flip, rotation
-            flow_list = [seqs_flow]
+
 
             all_list = [img_gt, img_lq, img_lq_deblur, img_sat_mask, vinetting_g_W[:,:,None], vinetting_g_UW[:,:,None]] + warped_short_seqs_list
-            all_list, flow_list = Augment_with_flows(all_list, self.opt['use_flip'],
-                                                                  self.opt['use_rot'], flow_list)
+            all_list, seqs_flow = Augment_with_flows(all_list, self.opt['use_flip'],
+                                                                  self.opt['use_rot'], seqs_flow)
 
             img_gt = all_list[0]
             img_lq = all_list[1]
@@ -384,7 +385,6 @@ class HCBlur_with_U_dataset(data.Dataset):
 
             warped_short_seqs_list = all_list[6:]
 
-            seqs_flow = flow_list[0]
 
         img_sat_mask = torch.from_numpy(img_sat_mask.copy().transpose(2, 0, 1))
         vinetting_g_W = torch.from_numpy(vinetting_g_W.copy())
@@ -408,7 +408,6 @@ class HCBlur_with_U_dataset(data.Dataset):
 
                 seqs_flow_list = list(torch.split(seqs_flow, 1, dim=0))
                 seqs_flow_list = [temp.squeeze(0) for temp in seqs_flow_list]
-
                 reference_flow = seqs_flow_list.pop(short_center_index)
                 seqs_flow_list = [reference_flow] + seqs_flow_list
 

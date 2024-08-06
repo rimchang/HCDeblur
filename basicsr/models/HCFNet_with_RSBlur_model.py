@@ -644,24 +644,6 @@ class HCFNet_with_RSBlur_model(BaseModel):
             l_total += l_pix
             loss_dict['l_pix'] = l_pix
 
-
-        # perceptual loss
-        if self.cri_perceptual:
-            l_percep, l_style = self.cri_perceptual(self.output, self.gt)
-        #
-            if l_percep is not None:
-                l_total += l_percep
-                loss_dict['l_percep'] = l_percep
-            if l_style is not None:
-                l_total += l_style
-                loss_dict['l_style'] = l_style
-
-        # fft loss
-        if self.cri_fft:
-            l_fft = self.cri_fft(preds[-1], self.gt)
-            l_total += l_fft
-            loss_dict['l_fft'] = l_fft
-
         l_total = l_total #+ 0. * sum(p.sum() for p in self.net_g.parameters())
 
         l_total.backward()
