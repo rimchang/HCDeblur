@@ -119,7 +119,24 @@ bash evaluation/evaluation_NR_metrics.sh "results/HCBlur-Real/HCDNet/*_HCDNet.pn
 bash evaluation/evaluation_NR_metrics.sh "results/HCBlur-Real/HCFNet/*_HCFNet.png" HCFNet
 ```
 
-## Training (Soon)
+## Training
+# ./HCDeblur
+# datasets should be located in datasets
+
+# Step 1: pre-compute optical flows for training # requires 433 GB
+python compute_flows.py --root_path=datasets/HCBlur_Syn_train --out_path=datasets/HCBlur_Syn_train/shortUW_flows;
+python compute_interpolated_flows_trainset.py
+
+# Step 2: training HC-DNet
+python -m torch.distributed.launch --nproc_per_node=4 --master_port=4110 basicsr/train.py -opt options/train/HCDNet-train.yml --launcher pytorch
+
+# Step 3: save results of HC-DNet
+python -m torch.distributed.launch --nproc_per_node=1 --master_port=4111 basicsr/test.py -opt options/test/HCDNet-save-trainset.yml --launcher pytorch
+python -m torch.distributed.launch --nproc_per_node=1 --master_port=4112 basicsr/test.py -opt options/test/HCDNet-save-valset.yml --launcher pytorch
+
+# Step 4: training HC-FNet
+python -m torch.distributed.launch --nproc_per_node=2 --master_port=4113 basicsr/train.py -opt options/train/HCFNet-train.yml --launcher pytorchl
+```
 
 ## License
 
