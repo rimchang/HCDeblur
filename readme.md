@@ -120,6 +120,8 @@ bash evaluation/evaluation_NR_metrics.sh "results/HCBlur-Real/HCFNet/*_HCFNet.pn
 ```
 
 ## Training
+
+```bash
 # ./HCDeblur
 # datasets should be located in datasets
 
